@@ -1,32 +1,32 @@
-import { useCallback, useState } from "react";
+import { useCallback, useContext } from "react";
 import ReactFlow, {
   addEdge,
   applyEdgeChanges,
   applyNodeChanges,
   useReactFlow,
 } from "reactflow";
-import { initialNodes, nodeTypes } from "../nodes";
-import { initialEdges } from "../edges";
-import "../nodes/chat-textnode.css";
+import "./nodes/chat-textnode.css";
 
 import "reactflow/dist/style.css";
+import { DataEditContext } from "../context";
+import { nodeTypes } from "./nodes";
 
 export default function Flow() {
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
+  const { nodes, setNodes, edges, setEdges } = useContext(DataEditContext);
+
   const { screenToFlowPosition } = useReactFlow(); // Get project method from useReactFlow
 
   const onNodesChange = useCallback(
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    []
+    [setNodes]
   );
   const onEdgesChange = useCallback(
     (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-    []
+    [setEdges]
   );
   const onConnect = useCallback(
     (connection) => setEdges((eds) => addEdge(connection, eds)),
-    []
+    [setEdges]
   );
 
   const handleDragOver = (event) => {
@@ -63,7 +63,7 @@ export default function Flow() {
       fitView
       onDragOver={handleDragOver}
       onDrop={handleDrop}
-      style={{ backgroundColor: "#d0ecfd44" }}
+      style={{ backgroundColor: "#d0ecfd55" }}
     />
   );
 }

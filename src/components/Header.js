@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../App.css";
+import { DataEditContext } from "../context";
 
 export default function Header() {
+  const { setEdit } = useContext(DataEditContext);
+
   return (
     <div
       style={{
@@ -16,7 +19,7 @@ export default function Header() {
     >
       <div style={{ marginLeft: "100px" }}>Flow Builder</div>
       <button
-        onClick={() => console.log("hello")}
+        onClick={() => setEdit(false)}
         style={{ marginRight: "100px" }}
         className="button-33"
       >

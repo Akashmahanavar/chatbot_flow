@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import MessageBox from "./MessageBox";
+import { DataEditContext } from "../context";
+import EditableTextArea from "./EditableTextArea";
 
 export default function SideBar() {
+  const { edit } = useContext(DataEditContext);
   return (
     <div
       style={{
@@ -12,7 +15,7 @@ export default function SideBar() {
       }}
     >
       <div style={{ margin: "10px" }}>
-        <MessageBox />
+        {!edit ? <MessageBox /> : <EditableTextArea />}
       </div>
     </div>
   );
