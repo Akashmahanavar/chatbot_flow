@@ -1,0 +1,22 @@
+.text-updater-node {
+  height: 30px;
+  border: 0.1px solid #000;
+  width: 100px;
+  border-radius: 5px;
+  background: white;
+  overflow: hidden;
+}
+
+.text-updater-node label {
+  display: flex;
+  justify-content: space-around;
+  color: #333;
+  background-color: #90ee90;
+  font-size: 8px;
+}
+.text-updater-node span {
+  display: flex;
+  justify-content: center;
+  color: #333;
+  font-size: 8px;
+}
