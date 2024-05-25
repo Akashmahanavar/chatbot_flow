@@ -1,11 +1,8 @@
-import { useCallback } from "react";
 import { Handle, Position } from "reactflow";
 
-const handleStyle = { left: 10 };
-
-function ChatTextNode({ data, isConnectable }) {
+function ChatTextNode({ data, isConnectable, id }) {
   return (
-    <div className="text-updater-node">
+    <div className="text-updater-node" onClick={() => console.log(id)}>
       <Handle
         type="target"
         position={Position.Left}
@@ -15,9 +12,9 @@ function ChatTextNode({ data, isConnectable }) {
         <label>
           <i className="bi bi-chat-left-text" />
           Send Message
-          <i class="bi bi-whatsapp" />
+          <i className="bi bi-whatsapp" />
         </label>
-        <span>{"Default Node"}</span>
+        <span>{data.label}</span>
       </div>
       <Handle
         type="source"

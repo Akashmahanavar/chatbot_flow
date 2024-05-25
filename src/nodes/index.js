@@ -4,7 +4,7 @@ export const initialNodes = [
     id: "1",
     type: "chat-texnode",
     position: { x: 0, y: 0 },
-    data: { value: 123 },
+    data: { label: "Default Node" },
   },
 ];
 
