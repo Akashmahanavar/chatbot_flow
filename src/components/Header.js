@@ -7,10 +7,11 @@ export default function Header() {
       style={{
         height: "10vh",
         width: "100vw",
-        backgroundColor: "#eee",
+        backgroundColor: "#d0ecfd88",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        borderBottom: "1px solid #ddd",
       }}
     >
       <div style={{ marginLeft: "100px" }}>Flow Builder</div>

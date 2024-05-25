@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 
 export default function MessageBox() {
   return (
@@ -12,7 +13,9 @@ export default function MessageBox() {
         justifyContent: "center",
         alignItems: "center ",
         cursor: "grab",
+        borderRadius: "15px",
       }}
+      className="dragDiv"
       draggable
     >
       <i className="bi bi-chat-left-text" />

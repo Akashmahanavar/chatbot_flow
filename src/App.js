@@ -41,6 +41,7 @@ function App() {
           onConnect={onConnect}
           nodeTypes={nodeTypes}
           fitView
+          style={{ backgroundColor: "#d0ecfd44" }}
         />
         <SideBar />
       </div>
