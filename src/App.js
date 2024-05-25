@@ -9,6 +9,7 @@ import "reactflow/dist/style.css";
 import "./nodes/chat-textnode.css";
 import { initialNodes, nodeTypes } from "./nodes";
 import { initialEdges } from "./edges";
+import Header from "./components/Header";
 
 function App() {
   const [nodes, setNodes] = useState(initialNodes);
@@ -29,15 +30,18 @@ function App() {
 
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        nodeTypes={nodeTypes}
-        fitView
-      />
+      <Header />
+      <div style={{ height: "90vh", width: "100vw" }}>
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          nodeTypes={nodeTypes}
+          fitView
+        />
+      </div>
     </div>
   );
 }
