@@ -10,6 +10,7 @@ import "./nodes/chat-textnode.css";
 import { initialNodes, nodeTypes } from "./nodes";
 import { initialEdges } from "./edges";
 import Header from "./components/Header";
+import SideBar from "./components/SideBar";
 
 function App() {
   const [nodes, setNodes] = useState(initialNodes);
@@ -31,7 +32,7 @@ function App() {
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
       <Header />
-      <div style={{ height: "90vh", width: "100vw" }}>
+      <div style={{ height: "90vh", width: "100vw", display: "flex" }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -41,6 +42,7 @@ function App() {
           nodeTypes={nodeTypes}
           fitView
         />
+        <SideBar />
       </div>
     </div>
   );

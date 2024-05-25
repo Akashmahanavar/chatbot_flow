@@ -13,8 +13,9 @@ function ChatTextNode({ data, isConnectable }) {
       />
       <div>
         <label>
-          <i className="bi bi-chat-left-text"></i>Send Message
-          <i class="bi bi-whatsapp"></i>
+          <i className="bi bi-chat-left-text" />
+          Send Message
+          <i class="bi bi-whatsapp" />
         </label>
         <span>{"Default Node"}</span>
       </div>
