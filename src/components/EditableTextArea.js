@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { DataEditContext } from "../context";
 
 export default function EditableTextArea() {
-  const { nodeId, nodes, setNodes } = useContext(DataEditContext);
+  const { nodeId, nodes, setNodes, setEdit } = useContext(DataEditContext);
   const nodeedit = nodes.find((data) => data.id === nodeId);
 
   const handleOnChange = (value) => {
@@ -16,16 +16,24 @@ export default function EditableTextArea() {
   };
 
   return (
-    <textarea
-      defaultValue={nodeedit.data.label}
-      onChange={(e) => handleOnChange(e.target.value)}
-      style={{
-        border: "1px solid #bbb",
-        width: "200px",
-        height: "80px",
-        backgroundColor: "white",
-        overflow: "hidden",
-      }}
-    />
+    <div>
+      <div
+        style={{ cursor: "pointer", height: "30px" }}
+        onClick={() => setEdit(false)}
+      >
+        <i className="bi bi-arrow-left"> Go Back</i>
+      </div>
+      <textarea
+        defaultValue={nodeedit.data.label}
+        onChange={(e) => handleOnChange(e.target.value)}
+        style={{
+          border: "1px solid #bbb",
+          width: "200px",
+          height: "80px",
+          backgroundColor: "white",
+          overflow: "hidden",
+        }}
+      />
+    </div>
   );
 }

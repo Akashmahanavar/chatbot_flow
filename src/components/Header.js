@@ -6,10 +6,9 @@ import { DataEditContext } from "../context";
 import { areAllNodesConnected } from "../utils";
 
 export default function Header() {
-  const { setEdit, nodes, edges } = useContext(DataEditContext);
+  const { nodes, edges } = useContext(DataEditContext);
 
   const handleSave = () => {
-    setEdit(false);
     const allConnected = areAllNodesConnected(nodes, edges);
     if (allConnected) {
       toast.success("Flow saved successfully!", {
