@@ -1,9 +1,28 @@
 import React, { useContext } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
 import { DataEditContext } from "../context";
+import { areAllNodesConnected } from "../utils";
 
 export default function Header() {
-  const { setEdit } = useContext(DataEditContext);
+  const { setEdit, nodes, edges } = useContext(DataEditContext);
+
+  const handleSave = () => {
+    setEdit(false);
+    const allConnected = areAllNodesConnected(nodes, edges);
+    if (allConnected) {
+      toast.success("Flow saved successfully!", {
+        position: "top-center", // Use string directly
+        autoClose: 3000, // 3 seconds
+      });
+    } else {
+      toast.error("Can't save flow!", {
+        position: "top-center", // Use string directly
+        autoClose: 3000, // 3 seconds
+      });
+    }
+  };
 
   return (
     <div
@@ -18,8 +37,9 @@ export default function Header() {
       }}
     >
       <div style={{ marginLeft: "100px" }}>Flow Builder</div>
+      <ToastContainer /> {/* Ensure ToastContainer is rendered */}
       <button
-        onClick={() => setEdit(false)}
+        onClick={handleSave}
         style={{ marginRight: "100px" }}
         className="button-33"
       >
